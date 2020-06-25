@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Covid차트</title>
+</head>
+<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+  <div id="container"></div>
+  <p class="highcharts-description">
+  </p>
+</figure>
+<script>
+Highcharts.chart('container', {
+
+  title: {
+    text: 'COVID-19 Cases by Country'
+  },
+
+  subtitle: {
+    text: 'For the USA, Austalia, Germany, France, United Kingdom, and Korea, South\\ 월별 회복자수'
+  },
+
+  yAxis: {
+    title: {
+      text: '# of Cases'
+    }
+  },
+
+  xAxis: {
+    accessibility: {
+      rangeDescription: 'Range: 2 to 6'
+    }
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2
+    }
+  },
+
+  series: [{
+      name: 'Korea',
+      data: [0, 30, 5567, 9123, 10446]
+  }, {
+    name: 'USA',
+    data: [0,7,8474,164015,458231]
+  }, {
+    name: 'United Kingdom',
+    data: [0, 8, 179, 892, 1221]
+  }, {
+    name: 'France',
+    data: [0, 12, 11053, 50212, 68558]
+  }, {
+    name: 'Australia',
+    data: [2, 11, 422, 5775, 6626]
+  }, {
+    name: 'Germany',
+    data: [0, 16, 18700, 126900, 165632]
+  }],
+
+responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 100
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+
+});
+</script>
+</body>
+</html>
